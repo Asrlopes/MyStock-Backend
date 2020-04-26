@@ -6,8 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('companies')
-class Companies {
+@Entity('providers')
+class Providers {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -24,9 +24,6 @@ class Companies {
   email: string;
 
   @Column()
-  password: string;
-
-  @Column()
   phone: string;
 
   @CreateDateColumn()
@@ -36,4 +33,4 @@ class Companies {
   updated_at: Date;
 }
 
-export default Companies;
+export default Providers;
