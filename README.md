@@ -4,7 +4,7 @@
 <a href="https://www.figma.com/file/PUHex1jAmlAKrIGoRNB5Yu/MyStock?node-id=0%3A1">
 Caso queira ver o possivel layout da aplicação aperte aqui </a>
 
-##Está e a versão Back-End do projeto  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Asrlopes/MyStock-Backend?color=%2304D361">
+<h2>Está e a versão Back-End do projeto  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Asrlopes/MyStock-Backend?color=%2304D361"></h2>
 
 ###O projeto ainda está em desenvolvimento, caso queira testar aqui está alguns passos para a instalação.
 - Clonar o projeto
