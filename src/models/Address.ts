@@ -4,7 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
+  JoinColumn,
 } from 'typeorm';
+
+import Cities from './Cities';
 
 @Entity('address')
 class Address {
@@ -22,6 +26,13 @@ class Address {
 
   @Column()
   neighborhood: string;
+
+  @Column()
+  city_id: number;
+
+  @OneToMany(() => Cities, city => city.name)
+  @JoinColumn({ name: 'city_id' })
+  city: Cities;
 
   @CreateDateColumn()
   created_at: Date;
