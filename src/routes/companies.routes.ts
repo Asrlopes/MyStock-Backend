@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
-// import CompaniesRepository from '../repositories/CompaniesRepository';
+
 import Companies from '../models/Companies';
+
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 import CreateCompanyService from '../services/CreateCompanyService';
 
@@ -9,7 +11,7 @@ const companiesRouter = Router();
 
 // companiesRouter.use(ensureAuthenticated);
 
-companiesRouter.get('/', async (request, response) => {
+companiesRouter.get('/', ensureAuthenticated, async (request, response) => {
   const companiesRepository = getRepository(Companies);
   const companies = await companiesRepository.find();
 
