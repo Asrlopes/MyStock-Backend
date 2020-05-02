@@ -4,9 +4,11 @@ import Companies from '../models/Companies';
 
 @EntityRepository(Companies)
 class CompaniesRepository extends Repository<Companies> {
-  public async getDate(): Promise<void> {
-    // const companies = await this.find();
-    // return { companies };
+  public async listMyCompanie(id: string): Promise<Companies | null> {
+    const company = await this.findOne({
+      where: { id },
+    });
+    return company || null;
   }
 }
 

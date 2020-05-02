@@ -4,7 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
+  ManyToOne,
   JoinColumn,
 } from 'typeorm';
 
@@ -30,7 +30,7 @@ class Address {
   @Column()
   city_id: number;
 
-  @OneToMany(() => Cities, city => city.name)
+  @ManyToOne(() => Cities)
   @JoinColumn({ name: 'city_id' })
   city: Cities;
 

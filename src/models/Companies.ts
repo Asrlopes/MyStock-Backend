@@ -4,7 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+
+import Address from './Address';
 
 @Entity('companies')
 class Companies {
@@ -28,6 +32,13 @@ class Companies {
 
   @Column()
   phone: string;
+
+  @Column()
+  address_id: number;
+
+  @ManyToOne(() => Address)
+  @JoinColumn({ name: 'address_id' })
+  address: Address;
 
   @CreateDateColumn()
   created_at: Date;

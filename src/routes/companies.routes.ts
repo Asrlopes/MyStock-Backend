@@ -1,13 +1,15 @@
 import { Router } from 'express';
-import { Repository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 
-import Companies from '../models/Companies';
+import CompaniesRepository from '../repositories/CompaniesRepository';
 
 const companiesRouter = Router();
 
 companiesRouter.get('/', async (request, response) => {
-  const repository = new Companies();
-  const companiesRepository = Repository(repository);
+  const companiesRepository = getCustomRepository(CompaniesRepository);
+  const companies = await companiesRepository.find();
+
+  return response.json(companies);
 });
 
 export default companiesRouter;

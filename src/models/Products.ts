@@ -4,7 +4,13 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToMany,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+
+import Providers from './Providers';
+import Categories from './Categories';
 
 @Entity('products')
 class Products {
@@ -25,6 +31,20 @@ class Products {
 
   @Column()
   img: string;
+
+  @Column()
+  category_id: number;
+
+  @ManyToOne(() => Categories)
+  @JoinColumn({ name: 'category_id' })
+  category: Categories;
+
+  @Column()
+  provider_id: string;
+
+  @ManyToMany(() => Providers)
+  @JoinColumn({ name: 'category_id' })
+  provider: Providers;
 
   @CreateDateColumn()
   created_at: Date;
